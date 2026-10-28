@@ -121,44 +121,41 @@ This produces a production-optimized build in the `dist/` directory.
 
 ---
 
-## 🐙 How to Push to GitHub (`pbanushri-hash`)
+## 🐙 How to Push to GitHub & Deploy to GitHub Pages
 
-1. Create a new repository on [GitHub](https://github.com/new) named **`anushri-portfolio`** (set to **Public**). Do not check "Add a README file" since this project already includes one.
-2. Open your terminal inside this project's root folder and run:
+Repository: [https://github.com/pbanushri-hash/anushri-pb-portfolio](https://github.com/pbanushri-hash/anushri-pb-portfolio)  
+Live URL: [https://pbanushri-hash.github.io/anushri-pb-portfolio/](https://pbanushri-hash.github.io/anushri-pb-portfolio/)
+
+### 1. Push Fix to GitHub
+In your project root directory, run:
 
 ```bash
-# Initialize git if not already initialized
-git init
-
-# Stage all files
 git add .
-
-# Create the initial commit
-git commit -m "feat: initial commit of personal portfolio website"
-
-# Rename branch to main
+git commit -m "fix: configure vite base path and github pages automated workflow"
 git branch -M main
-
-# Link your GitHub repository
-git remote add origin https://github.com/pbanushri-hash/anushri-portfolio.git
-
-# Push the code to GitHub
 git push -u origin main
 ```
 
+### 2. Enable GitHub Actions in Repository Settings
+To let the included workflow (`.github/workflows/deploy.yml`) deploy automatically:
+1. Open your repository on GitHub: `https://github.com/pbanushri-hash/anushri-pb-portfolio`
+2. Go to **Settings** &gt; **Pages** (in the left sidebar).
+3. Under **Build and deployment** &gt; **Source**, select **GitHub Actions**.
+4. That's it! Every time you push to `main`, GitHub Actions will automatically install dependencies, build the production bundle with the `/anushri-pb-portfolio/` base path, and deploy the `dist/` directory to GitHub Pages.
+
 ---
 
-## ⚡ How to Deploy on Vercel (Free Hosting)
+## ⚡ Alternative: Deploy on Vercel (Free Hosting)
 
 1. Go to [vercel.com](https://vercel.com) and click **Sign Up** (choose **Continue with GitHub** with account `pbanushri-hash`).
 2. Click **Add New... > Project**.
-3. Find your **`anushri-portfolio`** repository in the list and click **Import**.
+3. Find your **`anushri-pb-portfolio`** repository in the list and click **Import**.
 4. Vercel automatically detects **Vite**:
    - **Framework Preset:** Vite
    - **Build Command:** `npm run build`
    - **Output Directory:** `dist`
 5. Click **Deploy**.
-6. In ~30–45 seconds, your website is live with an official HTTPS URL (e.g. `https://anushri-portfolio.vercel.app`).
+6. In ~30–45 seconds, your website is live with an official HTTPS URL.
 
 ---
 

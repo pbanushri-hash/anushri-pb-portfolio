@@ -1,5 +1,9 @@
 import { Achievement, Certification, Experience, Project, SkillCategory } from '../types/portfolio';
 
+const basePath = (import.meta.env.BASE_URL || '/').endsWith('/')
+  ? (import.meta.env.BASE_URL || '/')
+  : `${import.meta.env.BASE_URL}/`;
+
 export const personalInfo = {
   name: 'Anushri P.B.',
   title: 'Aspiring Software Developer | AI Enthusiast | CSE Student',
@@ -16,10 +20,10 @@ export const personalInfo = {
     'I am a Computer Science and Engineering student interested in software development, artificial intelligence, cloud computing, and data analytics. I enjoy exploring new technologies, building practical projects, participating in technical events, and improving my problem-solving skills.',
   careerGoal:
     'Secure software development and AI-related internships and prepare for future placements at leading technology companies.',
-  resumePath: '/resume.pdf',
+  resumePath: `${basePath}resume.pdf`,
   resumeDownloadFilename: 'Anushri_PB_Resume.pdf',
-  profilePhotoUrl: '/profile.jpg',
-  resumeScanImageUrl: '/assets/aistudio/image_b05eab35.png',
+  profilePhotoUrl: `${basePath}profile.jpg`,
+  resumeScanImageUrl: `${basePath}assets/aistudio/image_b05eab35.png`,
 };
 
 export const skillCategories: SkillCategory[] = [

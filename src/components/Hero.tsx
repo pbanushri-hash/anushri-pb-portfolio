@@ -169,10 +169,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenGuide }) => {
                     loading="eager"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      // Fallback to direct asset path or styled placeholder if /profile.jpg fails
+                      // Fallback to direct asset path or styled placeholder if profile.jpg fails
                       const target = e.currentTarget;
+                      const base = (import.meta.env.BASE_URL || '/').endsWith('/')
+                        ? (import.meta.env.BASE_URL || '/')
+                        : `${import.meta.env.BASE_URL}/`;
                       if (!target.src.includes('WhatsApp_Image')) {
-                        target.src = '/assets/aistudio/WhatsApp_Image_2026-10-28_at_8.16.31_PM_0891812e.jpeg';
+                        target.src = `${base}assets/aistudio/WhatsApp_Image_2026-10-28_at_8.16.31_PM_0891812e.jpeg`;
                       }
                     }}
                   />

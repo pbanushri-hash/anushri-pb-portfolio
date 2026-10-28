@@ -189,28 +189,15 @@ export const DeploymentGuideModal: React.FC<DeploymentGuideModalProps> = ({
                 Push Code to your GitHub (<code className="font-mono text-xs text-purple-900">pbanushri-hash</code>)
               </h4>
               <p className="text-xs text-zinc-600 leading-relaxed">
-                Follow these exact steps to create a new GitHub repository and push your complete code:
+                Run these commands inside your project terminal to commit and push the fix:
               </p>
-
-              <ol className="space-y-3 text-xs text-zinc-700">
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-purple-900">1.</span>
-                  <div>
-                    Go to <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" className="text-purple-900 underline font-semibold">github.com/new</a> and create a repository named <code className="font-mono bg-zinc-100 px-1 rounded text-purple-950 font-bold">anushri-portfolio</code> (set to Public, do not initialize with README since we have one).
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-purple-900">2.</span>
-                  <div>In your project terminal, initialize Git and commit:</div>
-                </li>
-              </ol>
 
               {/* Terminal Code Snippet */}
               <div className="relative bg-zinc-950 text-zinc-200 p-4 rounded-xl font-mono text-xs leading-relaxed">
                 <button
                   onClick={() =>
                     handleCopy(
-                      `git init\ngit add .\ngit commit -m "feat: initial commit of personal developer portfolio"\ngit branch -M main\ngit remote add origin https://github.com/pbanushri-hash/anushri-portfolio.git\ngit push -u origin main`,
+                      `git add .\ngit commit -m "fix: configure vite base path and github pages automated workflow"\ngit branch -M main\ngit remote set-url origin https://github.com/pbanushri-hash/anushri-pb-portfolio.git || git remote add origin https://github.com/pbanushri-hash/anushri-pb-portfolio.git\ngit push -u origin main`,
                       'git-cmds'
                     )
                   }
@@ -223,13 +210,23 @@ export const DeploymentGuideModal: React.FC<DeploymentGuideModalProps> = ({
                     <Copy className="w-3.5 h-3.5" />
                   )}
                 </button>
-                <div className="text-zinc-400"># Run inside your project folder:</div>
-                <div>git init</div>
+                <div className="text-zinc-400"># Run in your project root:</div>
                 <div>git add .</div>
-                <div>git commit -m &quot;feat: initial commit of personal developer portfolio&quot;</div>
+                <div>git commit -m &quot;fix: configure vite base path and github pages automated workflow&quot;</div>
                 <div>git branch -M main</div>
-                <div>git remote add origin https://github.com/pbanushri-hash/anushri-portfolio.git</div>
                 <div>git push -u origin main</div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-purple-50/70 border border-purple-200 text-xs text-zinc-700 space-y-2">
+                <div className="font-bold text-purple-950">
+                  ⚙️ One-Time GitHub Settings Step for GitHub Pages:
+                </div>
+                <ol className="list-decimal list-inside space-y-1 text-zinc-600">
+                  <li>Go to your repository on GitHub: <code className="font-mono bg-white px-1 py-0.5 rounded">github.com/pbanushri-hash/anushri-pb-portfolio</code></li>
+                  <li>Click <strong>Settings</strong> &gt; <strong>Pages</strong> (in the left sidebar).</li>
+                  <li>Under <strong>Build and deployment &gt; Source</strong>, choose <strong>GitHub Actions</strong>.</li>
+                  <li>The included <code className="font-mono bg-white px-1 py-0.5 rounded">.github/workflows/deploy.yml</code> workflow will automatically build and publish your site!</li>
+                </ol>
               </div>
             </div>
           )}
